@@ -417,7 +417,7 @@
                     const linkImg = item.Link_Gambar ? item.Link_Gambar.toString().trim() : "";
                     const isValidUrl = linkImg.startsWith("http://") || linkImg.startsWith("https://");
 
-                    const fallbackBanner = `<div class="w-full h-44 bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center text-blue-800 font-bold text-sm tracking-wide">INFO SDN PLUIT 03</div>`;
+                    const fallbackBanner = `<div class='w-full h-44 bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center text-blue-800 font-bold text-sm tracking-wide'>INFO SDN PLUIT 03</div>`;
 
                     const gambarHTML = isValidUrl
                         ? `<img src="${linkImg}" alt="${item.Judul}" loading="lazy" class="w-full h-44 object-cover" onerror="this.outerHTML=\`${fallbackBanner}\`">`
