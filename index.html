@@ -9,6 +9,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        section[id], header[id] { scroll-margin-top: 4rem; }
+        .rise { opacity: 0; transform: translateY(18px); animation: rise .8s cubic-bezier(.2,.7,.2,1) forwards; }
+        @keyframes rise { to { opacity: 1; transform: none; } }
+        .wave-front { animation: wave 16s linear infinite; }
+        .wave-back { animation: wave 26s linear infinite reverse; }
+        @keyframes wave { to { transform: translateX(-50%); } }
+        :focus-visible { outline: 3px solid #fbbf24; outline-offset: 2px; }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto !important; }
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+            .rise { opacity: 1; transform: none; }
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased">
@@ -32,7 +44,7 @@
                     <a href="#profil" class="hover:text-blue-700 transition">Profil</a>
                     <a href="#visimisi" class="hover:text-blue-700 transition">Visi &amp; Misi</a>
                     <a href="#kontak" class="hover:text-blue-700 transition">Kontak</a>
-                    <a href="#" onclick="alert('Portal TU / Sistem Data sedang dalam pengembangan!')" class="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2.5 rounded-lg shadow-sm transition">
+                    <a href="#" data-portal class="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2.5 rounded-lg shadow-sm transition">
                         Portal TU &rarr;
                     </a>
                 </div>
@@ -51,35 +63,42 @@
             <a href="#profil" class="block py-2 hover:text-blue-700">Profil</a>
             <a href="#visimisi" class="block py-2 hover:text-blue-700">Visi &amp; Misi</a>
             <a href="#kontak" class="block py-2 hover:text-blue-700">Kontak</a>
-            <a href="#" onclick="alert('Portal TU sedang dalam pengembangan!')" class="block text-center bg-blue-700 text-white py-2.5 rounded-lg mt-2">
+            <a href="#" data-portal class="block text-center bg-blue-700 text-white py-2.5 rounded-lg mt-2">
                 Portal TU &rarr;
             </a>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <header id="beranda" class="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white overflow-hidden">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 relative z-10">
+    <header id="beranda" style="clip-path: inset(0)" class="relative min-h-[calc(100svh-4rem)] flex items-center bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white overflow-hidden">
+        <img src="foto1.jpg" alt="" class="fixed top-0 left-0 w-screen object-cover" style="height:100vh;height:100lvh" onerror="this.remove()">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-950/90 via-blue-900/65 to-blue-900/20"></div>
+
+        <div class="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-40 md:pb-48 relative z-10">
             <div class="max-w-3xl">
-                <span class="inline-block bg-blue-700/60 border border-blue-400/30 text-blue-100 text-xs font-semibold px-3 py-1 rounded-full mb-5">
+                <span class="rise inline-block bg-blue-700/60 backdrop-blur-sm border border-blue-300/30 text-blue-100 text-xs font-semibold px-3 py-1 rounded-full mb-5">
                     Website Resmi Sekolah Dasar Negeri Pluit 03
                 </span>
-                <h1 id="cms-hero-judul" class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+                <h1 id="cms-hero-judul" class="rise text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] mb-6" style="animation-delay:.1s">
                     Mencetak Generasi Cerdas, Berkarakter &amp; Melek Teknologi
                 </h1>
-                <p id="cms-hero-deskripsi" class="text-blue-100 text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
+                <p id="cms-hero-deskripsi" class="rise text-blue-100 text-base md:text-lg leading-relaxed mb-8 max-w-2xl" style="animation-delay:.2s">
                     Selamat datang di portal informasi resmi SDN Pluit 03, Jakarta Utara. Menyediakan informasi akademik, pengumuman sekolah, serta layanan administrasi yang transparan dan modern.
                 </p>
-                <div class="flex flex-wrap gap-4">
+                <div class="rise flex flex-wrap gap-4" style="animation-delay:.3s">
                     <a href="#pengumuman" class="bg-amber-400 hover:bg-amber-300 text-slate-900 font-bold px-6 py-3.5 rounded-xl shadow-md transition">
                         Lihat Pengumuman
                     </a>
-                    <a href="#profil" class="bg-white/10 hover:bg-white/20 border border-white/25 text-white font-semibold px-6 py-3.5 rounded-xl transition">
+                    <a href="#profil" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/25 text-white font-semibold px-6 py-3.5 rounded-xl transition">
                         Profil Sekolah
                     </a>
                 </div>
             </div>
         </div>
+
+        <!-- Gelombang air laut -->
+        <svg class="wave-back absolute bottom-0 left-0 w-[200%] h-20 md:h-28 text-slate-50/50 pointer-events-none" viewBox="0 0 2880 80" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0,40 C360,80 360,0 720,40 C1080,80 1080,0 1440,40 C1800,80 1800,0 2160,40 C2520,80 2520,0 2880,40 V80 H0Z"/></svg>
+        <svg class="wave-front absolute bottom-0 left-0 w-[200%] h-14 md:h-20 text-slate-50 pointer-events-none" viewBox="0 0 2880 80" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0,40 C360,0 360,80 720,40 C1080,0 1080,80 1440,40 C1800,0 1800,80 2160,40 C2520,0 2520,80 2880,40 V80 H0Z"/></svg>
     </header>
 
     <!-- QUICK STATS BAR -->
@@ -116,6 +135,8 @@
             <div class="bg-white rounded-2xl p-6 border border-slate-100 animate-pulse h-64 hidden md:block"></div>
             <div class="bg-white rounded-2xl p-6 border border-slate-100 animate-pulse h-64 hidden md:block"></div>
         </div>
+
+        <div id="news-state" class="hidden text-center text-slate-500 py-10"></div>
 
         <div id="pengumuman-container" class="grid grid-cols-1 md:grid-cols-3 gap-6 hidden"></div>
     </section>
@@ -251,6 +272,7 @@
                     Kelurahan Pluit, Penjaringan,<br>
                     Jakarta Utara 14450
                 </p>
+                <a href="https://www.google.com/maps/search/?api=1&query=SDN+Pluit+03+Jakarta+Utara" target="_blank" rel="noopener" class="inline-block mt-3 text-sm font-semibold text-amber-300 hover:text-amber-200 transition">Buka di Google Maps &rarr;</a>
             </div>
             <div>
                 <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-3">Jam Layanan TU</h4>
@@ -258,17 +280,18 @@
                     <li>Senin – Jumat: 07.00 – 15.00 WIB</li>
                     <li>Sabtu &amp; Minggu: Tutup</li>
                 </ul>
+                <p id="open-status" class="mt-3 inline-flex items-center gap-2 text-xs font-semibold rounded-full px-3 py-1 bg-slate-800 text-slate-400"></p>
             </div>
             <div>
                 <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-3">Hubungi Kami</h4>
                 <ul class="text-sm text-slate-400 space-y-1.5">
-                    <li>Email: <span id="cms-email-tu">sdnegeripluit3@gmail.com</span></li>
-                    <li>Telepon: <span id="cms-telepon-tu">0813 4567 8910</span></li>
+                    <li>Email: <a id="cms-email-tu" href="mailto:sdnegeripluit3@gmail.com" class="hover:text-white hover:underline">sdnegeripluit3@gmail.com</a></li>
+                    <li>Telepon: <a id="cms-telepon-tu" href="tel:081345678910" class="hover:text-white hover:underline">0813 4567 8910</a></li>
                 </ul>
             </div>
         </div>
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
-            &copy; 2026 SDN Pluit 03 Jakarta Utara. Dikembangkan oleh Zaq.
+            &copy; <span id="year">2026</span> SDN Pluit 03 Jakarta Utara. Dikembangkan oleh Zaq.
         </div>
     </section>
 
@@ -287,20 +310,38 @@
         </div>
     </div>
 
+    <div id="toast" role="status" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] bg-slate-900 text-white text-sm font-semibold px-5 py-3 rounded-full shadow-xl transition opacity-0 pointer-events-none translate-y-3"></div>
+
     <!-- SCRIPT -->
     <script>
-        // 1. Toggle Menu Mobile
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        const $ = id => document.getElementById(id);
+        const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+        const isUrl = u => /^https?:\/\//i.test(u);
+        $('year').textContent = new Date().getFullYear();
 
-        // 2. Slider 5 Foto Sekolah
-        const track = document.getElementById('slider-track');
-        const dots = document.querySelectorAll('.slider-dot');
-        const sliderEl = document.getElementById('school-slider');
-        const totalSlides = 5;
-        let currentSlide = 0;
-        let autoSlideTimer;
+        // 1. Menu mobile (menutup setelah klik link / Esc)
+        const menuBtn = $('menu-btn'), mobileMenu = $('mobile-menu');
+        function setMenu(open) {
+            mobileMenu.classList.toggle('hidden', !open);
+            menuBtn.setAttribute('aria-expanded', open);
+        }
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.addEventListener('click', () => setMenu(mobileMenu.classList.contains('hidden')));
+        mobileMenu.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+
+        // Toast untuk Portal TU
+        let toastTimer;
+        document.querySelectorAll('[data-portal]').forEach(a => a.addEventListener('click', e => {
+            e.preventDefault(); setMenu(false);
+            const t = $('toast'); t.textContent = 'Portal TU sedang dalam pengembangan!';
+            t.classList.remove('opacity-0', 'translate-y-3'); clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => t.classList.add('opacity-0', 'translate-y-3'), 2600);
+        }));
+
+        // 2. Slider 5 foto (satu timer saja, bisa di-swipe)
+        const track = $('slider-track'), dots = document.querySelectorAll('.slider-dot'), sliderEl = $('school-slider');
+        const totalSlides = 5, reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let currentSlide = 0, hovering = false, lastTouch = 0;
 
         function updateSlider(index) {
             currentSlide = (index + totalSlides) % totalSlides;
@@ -310,140 +351,128 @@
                 dot.classList.toggle('bg-white/50', i !== currentSlide);
             });
         }
+        const manual = fn => { lastTouch = Date.now(); fn(); };
+        $('next-slide').addEventListener('click', () => manual(() => updateSlider(currentSlide + 1)));
+        $('prev-slide').addEventListener('click', () => manual(() => updateSlider(currentSlide - 1)));
+        dots.forEach(dot => dot.addEventListener('click', () => manual(() => updateSlider(+dot.dataset.index))));
 
-        function startAutoSlide() {
-            autoSlideTimer = setInterval(() => updateSlider(currentSlide + 1), 4000);
-        }
-
-        function resetAutoSlide() {
-            clearInterval(autoSlideTimer);
-            startAutoSlide();
-        }
-
-        document.getElementById('next-slide').addEventListener('click', () => {
+        sliderEl.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') hovering = true; });
+        sliderEl.addEventListener('pointerleave', () => hovering = false);
+        let startX = null;
+        sliderEl.addEventListener('touchstart', e => { startX = e.touches[0].clientX; lastTouch = Date.now(); }, { passive: true });
+        sliderEl.addEventListener('touchend', e => {
+            if (startX === null) return;
+            const dx = e.changedTouches[0].clientX - startX; startX = null;
+            if (Math.abs(dx) > 40) manual(() => updateSlider(currentSlide + (dx < 0 ? 1 : -1)));
+        });
+        if (!reduceMotion) setInterval(() => {
+            if (hovering || document.hidden || Date.now() - lastTouch < 6000) return;
             updateSlider(currentSlide + 1);
-            resetAutoSlide();
-        });
+        }, 4000);
 
-        document.getElementById('prev-slide').addEventListener('click', () => {
-            updateSlider(currentSlide - 1);
-            resetAutoSlide();
-        });
-
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                updateSlider(parseInt(dot.dataset.index));
-                resetAutoSlide();
-            });
-        });
-
-        sliderEl.addEventListener('mouseenter', () => clearInterval(autoSlideTimer));
-        sliderEl.addEventListener('mouseleave', startAutoSlide);
-        startAutoSlide();
-
-        // 3. Kontrol Popup (Modal) Pengumuman
-        let pengumumanData = [];
-        const newsModal = document.getElementById('news-modal');
-        const closeModalBtn = document.getElementById('close-modal');
+        // 3. Popup pengumuman
+        let pengumumanData = [], lastFocus = null;
+        const newsModal = $('news-modal');
 
         function openNewsModal(index) {
-            const item = pengumumanData[index];
-            if (!item) return;
-
-            const linkImg = item.Link_Gambar ? item.Link_Gambar.toString().trim() : "";
-            const isValidUrl = linkImg.startsWith("http://") || linkImg.startsWith("https://");
-            const imgContainer = document.getElementById('modal-image-container');
-
-            imgContainer.innerHTML = isValidUrl
-                ? `<img src="${linkImg}" alt="${item.Judul}" class="w-full max-h-80 object-cover" onerror="this.remove()">`
-                : "";
-
-            document.getElementById('modal-tanggal').textContent = item.Tanggal || '-';
-            document.getElementById('modal-judul').textContent = item.Judul || 'Pengumuman';
-            document.getElementById('modal-isi').textContent = item.Isi || '';
-
-            newsModal.classList.remove('hidden');
-            newsModal.classList.add('flex');
+            const item = pengumumanData[index]; if (!item) return;
+            const url = (item.Link_Gambar || '').toString().trim(), box = $('modal-image-container');
+            box.replaceChildren();
+            if (isUrl(url)) {
+                const img = Object.assign(new Image(), { src: url, alt: item.Judul || '', className: 'w-full max-h-80 object-cover' });
+                img.addEventListener('error', () => img.remove(), { once: true });
+                box.append(img);
+            }
+            $('modal-tanggal').textContent = item.Tanggal || '-';
+            $('modal-judul').textContent = item.Judul || 'Pengumuman';
+            $('modal-isi').textContent = item.Isi || '';
+            lastFocus = document.activeElement;
+            newsModal.classList.remove('hidden'); newsModal.classList.add('flex');
             document.body.classList.add('overflow-hidden');
+            $('close-modal').focus();
         }
-
         function closeNewsModal() {
-            newsModal.classList.add('hidden');
-            newsModal.classList.remove('flex');
+            newsModal.classList.add('hidden'); newsModal.classList.remove('flex');
             document.body.classList.remove('overflow-hidden');
+            lastFocus?.focus();
+        }
+        $('close-modal').addEventListener('click', closeNewsModal);
+        newsModal.addEventListener('click', e => { if (e.target === newsModal) closeNewsModal(); });
+        document.addEventListener('keydown', e => {
+            if (e.key !== 'Escape') return;
+            if (!newsModal.classList.contains('hidden')) closeNewsModal(); else setMenu(false);
+        });
+
+        // 4. Data dari Google Apps Script
+        const API_URL = "https://script.google.com/macros/s/AKfycbxRbSM4U8IqFIr25rfHH8H3_s77cnut4xNfzeHW4-mLn02CxgLWHcx8J2YaS76DLbF2/exec";
+        const fallbackBanner = () => Object.assign(document.createElement('div'), {
+            className: 'w-full h-44 bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center text-blue-800 font-bold text-sm tracking-wide',
+            textContent: 'INFO SDN PLUIT 03' });
+
+        function applyBeranda(b) {
+            if (!b) return;
+            const set = (id, v) => { if (v) $(id).textContent = v; };
+            set('cms-hero-judul', b.Hero_Judul); set('cms-hero-deskripsi', b.Hero_Deskripsi);
+            set('cms-stat-akreditasi', b.Stat_Akreditasi); set('cms-visi', b.Visi);
+            if (b.Email_TU) { const a = $('cms-email-tu'); a.textContent = b.Email_TU; a.href = 'mailto:' + b.Email_TU; }
+            if (b.Telepon_TU) { const a = $('cms-telepon-tu'); a.textContent = b.Telepon_TU; a.href = 'tel:' + String(b.Telepon_TU).replace(/[^\d+]/g, ''); }
         }
 
-        closeModalBtn.addEventListener('click', closeNewsModal);
-        newsModal.addEventListener('click', (e) => {
-            if (e.target === newsModal) closeNewsModal();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !newsModal.classList.contains('hidden')) closeNewsModal();
-        });
+        function showState(html) {
+            $('loading').classList.add('hidden');
+            $('pengumuman-container').classList.add('hidden');
+            const s = $('news-state'); s.innerHTML = html; s.classList.remove('hidden');
+        }
 
-        // 4. Tarik Data Beranda & Pengumuman dari Google Apps Script
-        const API_URL = "https://script.google.com/macros/s/AKfycbxRbSM4U8IqFIr25rfHH8H3_s77cnut4xNfzeHW4-mLn02CxgLWHcx8J2YaS76DLbF2/exec";
+        function renderNews(list) {
+            pengumumanData = list;
+            if (!list.length) return showState('Belum ada pengumuman terbaru.');
+            const box = $('pengumuman-container');
+            box.innerHTML = list.map((item, i) => {
+                const url = (item.Link_Gambar || '').toString().trim();
+                return `
+                <article data-i="${i}" tabindex="0" role="button" class="cursor-pointer bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition flex flex-col">
+                    ${isUrl(url) ? `<img data-fb src="${esc(url)}" alt="${esc(item.Judul)}" loading="lazy" class="w-full h-44 object-cover">` : '<div data-empty></div>'}
+                    <div class="p-6 flex-1 flex flex-col">
+                        <span class="text-xs font-bold text-blue-700 bg-blue-50 self-start px-2.5 py-1 rounded-md">${esc(item.Tanggal || '-')}</span>
+                        <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2 leading-snug">${esc(item.Judul)}</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed line-clamp-3 flex-1">${esc(item.Isi)}</p>
+                        <span class="text-blue-700 text-xs font-bold mt-4 inline-flex items-center gap-1">Baca selengkapnya &rarr;</span>
+                    </div>
+                </article>`;
+            }).join('');
+            box.querySelectorAll('[data-empty]').forEach(el => el.replaceWith(fallbackBanner()));
+            box.querySelectorAll('img[data-fb]').forEach(img => img.addEventListener('error', () => img.replaceWith(fallbackBanner()), { once: true }));
+            box.onclick = e => { const c = e.target.closest('[data-i]'); if (c) openNewsModal(+c.dataset.i); };
+            box.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { const c = e.target.closest('[data-i]'); if (c) { e.preventDefault(); openNewsModal(+c.dataset.i); } } };
+            $('loading').classList.add('hidden'); box.classList.remove('hidden');
+        }
 
         async function loadWebData() {
-            const loadingEl = document.getElementById('loading');
-            const containerEl = document.getElementById('pengumuman-container');
-
+            const ctrl = new AbortController(), timer = setTimeout(() => ctrl.abort(), 15000);
             try {
-                const response = await fetch(API_URL);
-                const result = await response.json();
-
-                // Update konten dari Sheet "Beranda"
-                if (result.beranda) {
-                    const b = result.beranda;
-                    if (b.Hero_Judul) document.getElementById('cms-hero-judul').textContent = b.Hero_Judul;
-                    if (b.Hero_Deskripsi) document.getElementById('cms-hero-deskripsi').textContent = b.Hero_Deskripsi;
-                    if (b.Stat_Akreditasi) document.getElementById('cms-stat-akreditasi').textContent = b.Stat_Akreditasi;
-                    if (b.Visi) document.getElementById('cms-visi').textContent = b.Visi;
-                    if (b.Email_TU) document.getElementById('cms-email-tu').textContent = b.Email_TU;
-                    if (b.Telepon_TU) document.getElementById('cms-telepon-tu').textContent = b.Telepon_TU;
-                }
-
-                // Render 6 Pengumuman Terbaru
-                pengumumanData = result.pengumuman || [];
-                loadingEl.classList.add('hidden');
-                containerEl.classList.remove('hidden');
-
-                if (pengumumanData.length === 0) {
-                    containerEl.innerHTML = `<p class="col-span-3 text-center text-slate-500 py-8">Belum ada pengumuman terbaru.</p>`;
-                    return;
-                }
-
-                pengumumanData.forEach((item, index) => {
-                    const linkImg = item.Link_Gambar ? item.Link_Gambar.toString().trim() : "";
-                    const isValidUrl = linkImg.startsWith("http://") || linkImg.startsWith("https://");
-
-                    const fallbackBanner = `<div class='w-full h-44 bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center text-blue-800 font-bold text-sm tracking-wide'>INFO SDN PLUIT 03</div>`;
-
-                    const gambarHTML = isValidUrl
-                        ? `<img src="${linkImg}" alt="${item.Judul}" loading="lazy" class="w-full h-44 object-cover" onerror="this.outerHTML=\`${fallbackBanner}\`">`
-                        : fallbackBanner;
-
-                    const card = `
-                        <article onclick="openNewsModal(${index})" class="cursor-pointer bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition flex flex-col">
-                            ${gambarHTML}
-                            <div class="p-6 flex-1 flex flex-col">
-                                <span class="text-xs font-bold text-blue-700 bg-blue-50 self-start px-2.5 py-1 rounded-md">${item.Tanggal || '-'}</span>
-                                <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2 leading-snug">${item.Judul}</h3>
-                                <p class="text-slate-600 text-sm leading-relaxed line-clamp-3 flex-1">${item.Isi || ''}</p>
-                                <span class="text-blue-700 text-xs font-bold mt-4 inline-flex items-center gap-1">
-                                    Baca selengkapnya &rarr;
-                                </span>
-                            </div>
-                        </article>
-                    `;
-                    containerEl.innerHTML += card;
-                });
-
-            } catch (error) {
-                console.error("Gagal mengambil data:", error);
-                loadingEl.innerHTML = `<div class="col-span-3 text-center text-red-500 py-8">Gagal memuat pengumuman. Coba refresh halaman.</div>`;
-            }
+                const res = await fetch(API_URL, { signal: ctrl.signal });
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const result = await res.json();
+                applyBeranda(result.beranda);
+                renderNews(Array.isArray(result.pengumuman) ? result.pengumuman : []);
+            } catch (err) {
+                console.error("Gagal mengambil data:", err);
+                showState('<p class="text-red-500 font-semibold">Gagal memuat pengumuman.</p><button id="retry" type="button" class="mt-3 bg-blue-700 hover:bg-blue-800 text-white font-semibold px-4 py-2 rounded-lg transition">Coba lagi</button>');
+                $('retry').onclick = () => { $('news-state').classList.add('hidden'); $('loading').classList.remove('hidden'); loadWebData(); };
+            } finally { clearTimeout(timer); }
         }
+        // 5. Status layanan TU (WIB, Senin-Jumat 07.00-15.00)
+        function updateOpenStatus() {
+            const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Jakarta', weekday: 'short', hour: 'numeric', hourCycle: 'h23' })
+                .formatToParts(new Date()).map(x => [x.type, x.value]));
+            const open = !['Sat', 'Sun'].includes(p.weekday) && +p.hour >= 7 && +p.hour < 15;
+            const el = $('open-status');
+            el.className = `mt-3 inline-flex items-center gap-2 text-xs font-semibold rounded-full px-3 py-1 ${open ? 'bg-emerald-500/15 text-emerald-300' : 'bg-slate-800 text-slate-400'}`;
+            el.innerHTML = `<span class="w-2 h-2 rounded-full ${open ? 'bg-emerald-400' : 'bg-slate-500'}"></span>${open ? 'Sedang buka' : 'Sedang tutup'}`;
+        }
+        updateOpenStatus();
+        setInterval(updateOpenStatus, 60000);
 
         document.addEventListener('DOMContentLoaded', loadWebData);
     </script>
