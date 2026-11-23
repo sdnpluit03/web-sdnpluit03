@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDN Pluit 03 - Jakarta Utara</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <!-- NAVBAR -->
+    <nav class="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#beranda" class="flex items-center gap-3">
+                    <div class="h-10 w-10 rounded-xl bg-blue-700 text-white flex items-center justify-center font-extrabold text-sm shadow-sm">
+                        P03
+                    </div>
+                    <div>
+                        <span class="font-extrabold text-lg text-slate-900 block leading-none">SDN PLUIT 03</span>
+                        <span class="text-xs text-slate-500 font-medium">Penjaringan, Jakarta Utara</span>
+                    </div>
+                </a>
+
+                <div class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-600">
+                    <a href="#beranda" class="hover:text-blue-700 transition">Beranda</a>
+                    <a href="#pengumuman" class="hover:text-blue-700 transition">Pengumuman</a>
+                    <a href="#profil" class="hover:text-blue-700 transition">Profil</a>
+                    <a href="#visimisi" class="hover:text-blue-700 transition">Visi &amp; Misi</a>
+                    <a href="#kontak" class="hover:text-blue-700 transition">Kontak</a>
+                    <a href="#" onclick="alert('Portal TU / Sistem Data sedang dalam pengembangan!')" class="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2.5 rounded-lg shadow-sm transition">
+                        Portal TU &rarr;
+                    </a>
+                </div>
+
+                <button id="menu-btn" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 pt-2 pb-4 space-y-2 text-sm font-semibold text-slate-600 shadow-lg">
+            <a href="#beranda" class="block py-2 hover:text-blue-700">Beranda</a>
+            <a href="#pengumuman" class="block py-2 hover:text-blue-700">Pengumuman</a>
+            <a href="#profil" class="block py-2 hover:text-blue-700">Profil</a>
+            <a href="#visimisi" class="block py-2 hover:text-blue-700">Visi &amp; Misi</a>
+            <a href="#kontak" class="block py-2 hover:text-blue-700">Kontak</a>
+            <a href="#" onclick="alert('Portal TU sedang dalam pengembangan!')" class="block text-center bg-blue-700 text-white py-2.5 rounded-lg mt-2">
+                Portal TU &rarr;
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="beranda" class="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 relative z-10">
+            <div class="max-w-3xl">
+                <span class="inline-block bg-blue-700/60 border border-blue-400/30 text-blue-100 text-xs font-semibold px-3 py-1 rounded-full mb-5">
+                    Website Resmi Sekolah Dasar Negeri
+                </span>
+                <h1 id="cms-hero-judul" class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+                    Mencetak Generasi Cerdas, Berkarakter &amp; Melek Teknologi
+                </h1>
+                <p id="cms-hero-deskripsi" class="text-blue-100 text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
+                    Selamat datang di portal informasi resmi SDN Pluit 03, Jakarta Utara. Menyediakan informasi akademik, pengumuman sekolah, serta layanan administrasi yang transparan dan modern.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#pengumuman" class="bg-amber-400 hover:bg-amber-300 text-slate-900 font-bold px-6 py-3.5 rounded-xl shadow-md transition">
+                        Lihat Pengumuman
+                    </a>
+                    <a href="#profil" class="bg-white/10 hover:bg-white/20 border border-white/25 text-white font-semibold px-6 py-3.5 rounded-xl transition">
+                        Profil Sekolah
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- QUICK STATS BAR -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20">
+        <div class="bg-white rounded-2xl shadow-lg border border-slate-100 p-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div>
+                <div class="text-2xl md:text-3xl font-extrabold text-blue-800">1992</div>
+                <div class="text-xs md:text-sm text-slate-500 font-medium mt-1">Tahun Berdiri</div>
+            </div>
+            <div>
+                <div class="text-2xl md:text-3xl font-extrabold text-blue-800">4.475 m²</div>
+                <div class="text-xs md:text-sm text-slate-500 font-medium mt-1">Luas Lahan</div>
+            </div>
+            <div>
+                <div id="cms-stat-akreditasi" class="text-2xl md:text-3xl font-extrabold text-blue-800">A</div>
+                <div class="text-xs md:text-sm text-slate-500 font-medium mt-1">Akreditasi</div>
+            </div>
+            <div>
+                <div class="text-2xl md:text-3xl font-extrabold text-blue-800">Digital</div>
+                <div class="text-xs md:text-sm text-slate-500 font-medium mt-1">Layanan Terpadu</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PENGUMUMAN & BERITA -->
+    <section id="pengumuman" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+                <span class="text-blue-700 font-bold text-sm uppercase tracking-wider">Informasi Terkini</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 mt-1">Pengumuman &amp; Berita Sekolah</h2>
+            </div>
+            <p class="text-slate-500 text-sm max-w-md">
+                Menampilkan 6 informasi terbaru langsung dari Tata Usaha SDN Pluit 03.
+            </p>
+        </div>
+
+        <div id="loading" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-2xl p-6 border border-slate-100 animate-pulse h-64"></div>
+            <div class="bg-white rounded-2xl p-6 border border-slate-100 animate-pulse h-64 hidden md:block"></div>
+            <div class="bg-white rounded-2xl p-6 border border-slate-100 animate-pulse h-64 hidden md:block"></div>
+        </div>
+
+        <div id="pengumuman-container" class="grid grid-cols-1 md:grid-cols-3 gap-6 hidden"></div>
+    </section>
+
+    <!-- PROFIL & SEJARAH SINGKAT -->
+    <section id="profil" class="bg-white border-y border-slate-200 py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="bg-gradient-to-br from-blue-100 to-indigo-50 rounded-2xl aspect-video flex flex-col items-center justify-center border-2 border-dashed border-blue-200 text-blue-700 p-6 text-center">
+                <svg class="w-12 h-12 mb-3 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+                <span class="font-bold text-sm">Slot Foto Gedung SDN Pluit 03</span>
+                <span class="text-xs text-slate-500 mt-1">Nanti tinggal ganti pakai tag &lt;img src="gedung.jpg" loading="lazy"&gt;</span>
+            </div>
+
+            <div>
+                <span class="text-blue-700 font-bold text-sm uppercase tracking-wider">Tentang Kami</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 mt-1 mb-5">Sejarah Singkat SDN Pluit 03</h2>
+                <p class="text-slate-600 leading-relaxed mb-4">
+                    SDN Pluit 03 didirikan pada <strong>24 Juli 1992</strong> di Kelurahan Pluit, Kecamatan Penjaringan, Jakarta Utara. Berdiri di atas lahan seluas <strong>4.475 m²</strong> dengan luas bangunan <strong>936 m²</strong>, sekolah ini terus bertransformasi menjadi ruang belajar yang aman, inklusif, dan nyaman bagi peserta didik.
+                </p>
+                <p class="text-slate-600 leading-relaxed">
+                    Sejalan dengan Rencana Kerja Jangka Menengah (RKJM) 2026–2030, kami berkomitmen mengintegrasikan penguatan karakter, capaian akademik, kepedulian lingkungan, serta pemanfaatan teknologi digital dalam kegiatan belajar dan tata kelola sekolah.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISI & MISI -->
+    <section id="visimisi" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="text-blue-700 font-bold text-sm uppercase tracking-wider">Arah Pendidikan</span>
+            <h2 class="text-3xl font-extrabold text-slate-900 mt-1">Visi &amp; Misi Sekolah</h2>
+        </div>
+
+        <div class="bg-blue-900 text-white rounded-2xl p-8 md:p-10 text-center shadow-lg mb-8">
+            <span class="text-amber-300 font-bold text-xs uppercase tracking-widest">Visi SDN Pluit 03</span>
+            <p id="cms-visi" class="text-xl md:text-2xl font-bold mt-3 leading-snug max-w-3xl mx-auto">
+                "Terwujudnya peserta didik yang berakhlak mulia, berprestasi, berwawasan lingkungan, dan adaptif terhadap perkembangan teknologi."
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold mb-4">01</div>
+                <h3 class="font-bold text-slate-900 text-lg mb-2">Penguatan Karakter</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">Menanamkan nilai keimanan, kedisiplinan, gotong royong, dan sopan santun dalam keseharian siswa.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold mb-4">02</div>
+                <h3 class="font-bold text-slate-900 text-lg mb-2">Prestasi Akademik</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">Menyelenggarakan pembelajaran aktif, kreatif, dan inklusif untuk mengoptimalkan potensi setiap anak.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold mb-4">03</div>
+                <h3 class="font-bold text-slate-900 text-lg mb-2">Wawasan Lingkungan</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">Membangun budaya hidup bersih, sehat, dan peduli terhadap kelestarian lingkungan sekolah.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold mb-4">04</div>
+                <h3 class="font-bold text-slate-900 text-lg mb-2">Literasi Teknologi</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">Memanfaatkan teknologi informasi untuk mendukung pembelajaran modern dan layanan administrasi cepat.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAK & LOKASI -->
+    <section id="kontak" class="bg-slate-900 text-slate-300 py-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div>
+                <h3 class="text-white font-extrabold text-xl mb-3">SDN PLUIT 03</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">
+                    Kelurahan Pluit, Kecamatan Penjaringan,<br>
+                    Kota Administrasi Jakarta Utara, DKI Jakarta.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-3">Jam Layanan TU</h4>
+                <ul class="text-sm text-slate-400 space-y-1.5">
+                    <li>Senin – Jumat: 07.00 – 15.00 WIB</li>
+                    <li>Sabtu &amp; Minggu: Tutup</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-3">Hubungi Kami</h4>
+                <ul class="text-sm text-slate-400 space-y-1.5">
+                    <li>Email: <span id="cms-email-tu">tu.sdnpluit03@gmail.com</span></li>
+                    <li>Telepon: <span id="cms-telepon-tu">(021) xxx-xxxx</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+            &copy; 2026 SDN Pluit 03 Jakarta Utara. Dikembangkan oleh Zaq.
+        </div>
+    </section>
+
+    <!-- SCRIPT -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        const API_URL = "https://script.google.com/macros/s/AKfycbxRbSM4U8IqFIr25rfHH8H3_s77cnut4xNfzeHW4-mLn02CxgLWHcx8J2YaS76DLbF2/exec";
+
+        async function loadWebData() {
+            const loadingEl = document.getElementById('loading');
+            const containerEl = document.getElementById('pengumuman-container');
+
+            try {
+                const response = await fetch(API_URL);
+                const result = await response.json();
+
+                // 1. Update Konten Beranda dari Sheet "Beranda"
+                if (result.beranda) {
+                    const b = result.beranda;
+                    if (b.Hero_Judul) document.getElementById('cms-hero-judul').textContent = b.Hero_Judul;
+                    if (b.Hero_Deskripsi) document.getElementById('cms-hero-deskripsi').textContent = b.Hero_Deskripsi;
+                    if (b.Stat_Akreditasi) document.getElementById('cms-stat-akreditasi').textContent = b.Stat_Akreditasi;
+                    if (b.Visi) document.getElementById('cms-visi').textContent = b.Visi;
+                    if (b.Email_TU) document.getElementById('cms-email-tu').textContent = b.Email_TU;
+                    if (b.Telepon_TU) document.getElementById('cms-telepon-tu').textContent = b.Telepon_TU;
+                }
+
+                // 2. Render Pengumuman (Sudah di-limit 6 terbaru dari GAS)
+                const pengumuman = result.pengumuman || [];
+                loadingEl.classList.add('hidden');
+                containerEl.classList.remove('hidden');
+
+                if (pengumuman.length === 0) {
+                    containerEl.innerHTML = `<p class="col-span-3 text-center text-slate-500 py-8">Belum ada pengumuman terbaru.</p>`;
+                    return;
+                }
+
+                pengumuman.forEach(item => {
+                    const linkImg = item.Link_Gambar ? item.Link_Gambar.toString().trim() : "";
+                    const isValidUrl = linkImg.startsWith("http://") || linkImg.startsWith("https://");
+
+                    const fallbackBanner = `<div class="w-full h-44 bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center text-blue-800 font-bold text-sm tracking-wide">INFO SDN PLUIT 03</div>`;
+
+                    // Tambah loading="lazy" untuk optimasi kecepatan
+                    const gambarHTML = isValidUrl
+                        ? `<img src="${linkImg}" alt="${item.Judul}" loading="lazy" class="w-full h-44 object-cover" onerror="this.outerHTML=\`${fallbackBanner}\`">`
+                        : fallbackBanner;
+
+                    const card = `
+                        <article class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition flex flex-col">
+                            ${gambarHTML}
+                            <div class="p-6 flex-1 flex flex-col">
+                                <span class="text-xs font-bold text-blue-700 bg-blue-50 self-start px-2.5 py-1 rounded-md">${item.Tanggal || '-'}</span>
+                                <h3 class="text-lg font-bold text-slate-900 mt-3 mb-2 leading-snug">${item.Judul}</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed flex-1">${item.Isi || ''}</p>
+                            </div>
+                        </article>
+                    `;
+                    containerEl.innerHTML += card;
+                });
+
+            } catch (error) {
+                console.error("Gagal mengambil data:", error);
+                loadingEl.innerHTML = `<div class="col-span-3 text-center text-red-500 py-8">Gagal memuat pengumuman. Coba refresh halaman.</div>`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadWebData);
+    </script>
+
+</body>
+</html>
