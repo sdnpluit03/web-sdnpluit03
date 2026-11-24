@@ -19,15 +19,10 @@
         @keyframes bubble { 0% { transform: translate(0,0); opacity: 0; } 10% { opacity: .8; } 50% { transform: translate(14px,-200px); } 100% { transform: translate(-10px,-420px); opacity: 0; } }
         .blob { animation: drift 14s ease-in-out infinite alternate; }
         @keyframes drift { to { transform: translate(40px,-30px) scale(1.2); } }
-        .bob { animation: bob 3s ease-in-out infinite alternate; }
-        @keyframes bob { to { transform: translateY(-6px) rotate(-4deg); } }
-        .pre { opacity: 0; }
-        .pre.in { opacity: 1; animation: reveal .7s var(--d, 0ms) cubic-bezier(.2,.7,.2,1) backwards; }
-        @keyframes reveal { from { opacity: 0; transform: translateY(24px); } }
         .word { display: inline-block; opacity: 0; animation: wordin .6s calc(var(--i) * 70ms) cubic-bezier(.2,.7,.2,1) forwards; }
         @keyframes wordin { from { opacity: 0; transform: translateY(.6em); } to { opacity: 1; transform: none; } }
         @media (prefers-reduced-motion: reduce) { .word { opacity: 1; } }
-        .orbit-box { --s: min(58vw, 230px); --r: calc(var(--s) * .39); width: var(--s); height: var(--s); }
+        .orbit-box { --s: min(46vw, 190px); --r: calc(var(--s) * .39); width: var(--s); height: var(--s); }
         @media (min-width: 1024px) { .orbit-box { --s: min(40vw, 440px, calc(100svh - 12rem)); } }
         @keyframes spin { to { transform: rotate(360deg); } }
         .orbit { transform: rotate(var(--rot, 0deg)); will-change: transform; }
@@ -244,24 +239,24 @@
         </div>
     </section>
 
-    <!-- VISI & MISI -->
-    <section id="visimisi" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div class="text-center max-w-2xl mx-auto mb-12">
-            <span class="text-blue-700 font-bold text-sm uppercase tracking-wider">Arah Pendidikan</span>
-            <h2 class="text-3xl font-extrabold text-slate-900 mt-1">Visi &amp; Misi SDN Pluit 03</h2>
-            <p class="text-slate-500 text-sm mt-2">
+    <!-- VISI & MISI (FULL SCREEN) -->
+    <section id="visimisi" class="bg-blue-900 text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-4 text-center">
+            <span class="text-amber-300 font-bold text-sm uppercase tracking-wider">Arah Pendidikan</span>
+            <h2 class="text-3xl font-extrabold text-white mt-1">Visi &amp; Misi SDN Pluit 03</h2>
+            <p class="text-blue-200 text-sm mt-2 max-w-2xl mx-auto">
                 Dalam upaya mengimplementasikan visi sekolah, SDN Pluit 03 menjabarkan misi sekolah sebagai berikut:
             </p>
         </div>
 
-        <div id="vm-track" class="relative" style="height: calc(100svh + 5 * 60vh)">
+        <div id="vm-track" class="relative" style="height: calc(100svh + 5 * 45vh)">
             <div class="sticky" style="top: 4rem; height: calc(100svh - 4rem)">
-                <div id="visi-card" class="relative overflow-hidden bg-blue-900 text-white rounded-3xl shadow-lg h-full">
+                <div id="visi-card" class="relative overflow-hidden bg-blue-900 text-white w-full h-full">
                     <div class="blob absolute -top-16 -left-10 w-64 h-64 rounded-full bg-blue-500/30 blur-3xl" aria-hidden="true"></div>
                     <div class="blob absolute -bottom-20 -right-10 w-72 h-72 rounded-full bg-amber-400/15 blur-3xl" style="animation-delay:-6s" aria-hidden="true"></div>
                     <div id="bubbles" class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
 
-                    <div class="relative z-10 h-full grid content-center lg:grid-cols-[1.1fr_1fr] gap-x-12 gap-y-3 px-5 pt-5 pb-14 md:px-12 md:pt-8 md:pb-16">
+                    <div id="vm-content" class="relative z-10 max-w-6xl mx-auto h-full grid content-center lg:grid-cols-[1.1fr_1fr] gap-x-12 gap-y-4 px-5 pt-4 pb-16 md:px-8 md:pt-8 md:pb-20 will-change-transform">
                         <div class="lg:col-start-1 lg:row-start-1 self-end">
                             <span class="text-amber-300 font-bold text-xs uppercase tracking-widest">Visi Sekolah</span>
                             <p id="cms-visi" class="text-sm md:text-lg lg:text-2xl font-bold mt-2 leading-snug">
@@ -289,7 +284,7 @@
                     </div>
 
                     <svg class="wave-back absolute bottom-0 left-0 w-[200%] h-12 md:h-16 text-blue-700/40 pointer-events-none" viewBox="0 0 2880 80" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0,40 C360,80 360,0 720,40 C1080,80 1080,0 1440,40 C1800,80 1800,0 2160,40 C2520,80 2520,0 2880,40 V80 H0Z"/></svg>
-                    <svg class="wave-front absolute bottom-0 left-0 w-[200%] h-9 md:h-12 text-blue-950/60 pointer-events-none" viewBox="0 0 2880 80" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0,40 C360,0 360,80 720,40 C1080,0 1080,80 1440,40 C1800,0 1800,80 2160,40 C2520,0 2520,80 2880,40 V80 H0Z"/></svg>
+                    <svg class="wave-front absolute bottom-0 left-0 w-[200%] h-9 md:h-12 text-slate-900 pointer-events-none" viewBox="0 0 2880 80" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0,40 C360,0 360,80 720,40 C1080,0 1080,80 1440,40 C1800,0 1800,80 2160,40 C2520,0 2520,80 2880,40 V80 H0Z"/></svg>
                 </div>
             </div>
         </div>
@@ -495,6 +490,19 @@
                 $('retry').onclick = () => { $('news-state').classList.add('hidden'); $('loading').classList.remove('hidden'); loadWebData(); };
             } finally { clearTimeout(timer); }
         }
+
+        // 5. Status layanan TU (WIB, Senin-Jumat 07.00-15.00)
+        function updateOpenStatus() {
+            const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Jakarta', weekday: 'short', hour: 'numeric', hourCycle: 'h23' })
+                .formatToParts(new Date()).map(x => [x.type, x.value]));
+            const open = !['Sat', 'Sun'].includes(p.weekday) && +p.hour >= 7 && +p.hour < 15;
+            const el = $('open-status');
+            el.className = `mt-3 inline-flex items-center gap-2 text-xs font-semibold rounded-full px-3 py-1 ${open ? 'bg-emerald-500/15 text-emerald-300' : 'bg-slate-800 text-slate-400'}`;
+            el.innerHTML = `<span class="w-2 h-2 rounded-full ${open ? 'bg-emerald-400' : 'bg-slate-500'}"></span>${open ? 'Sedang buka' : 'Sedang tutup'}`;
+        }
+        updateOpenStatus();
+        setInterval(updateOpenStatus, 60000);
+
         // 6. Efek scroll: helper + hero
         const scrollFns = []; let scrollTick = false;
         const onScroll = fn => { scrollFns.push(fn); fn(); };
@@ -510,15 +518,15 @@
             const hero = $('beranda'), img = $('hero-img'), content = $('hero-content'), dim = $('hero-dim'), hint = $('hero-scroll');
             onScroll(() => {
                 const p = clamp01(scrollY / hero.offsetHeight);
-                if (img) img.style.transform = `scale(${1 + p * .25})`;      // foto zoom pelan
-                dim.style.opacity = p * .6;                                   // makin gelap
-                content.style.opacity = Math.max(0, 1 - p * 1.5);             // teks memudar
+                if (img) img.style.transform = `scale(${1 + p * .25})`;
+                dim.style.opacity = p * .6;
+                content.style.opacity = Math.max(0, 1 - p * 1.5);
                 content.style.transform = `translateY(${p * 70}px) scale(${1 - p * .06})`;
                 hint.style.opacity = Math.max(0, 1 - p * 5);
             });
         })();
 
-        // 7. Visi & Misi: section "nempel", scroll menggerakkan orbit & mengganti misi
+        // 7. Visi & Misi: full screen sticky + zoom in/out awal & akhir
         (function visiMisiStory() {
             const MISI = [
                 'Menanamkan nilai iman, taqwa, dan akhlak mulia dalam keseharian Murid melalui pembiasaan dan keteladanan.',
@@ -531,7 +539,6 @@
             const n = MISI.length, card = $('visi-card'), track = $('vm-track'), stage = track.firstElementChild;
             const orbit = $('orbit'), panel = $('vm-panel'), steps = $('vm-steps');
 
-            // gelembung
             const box = $('bubbles');
             for (let i = 0; i < 12; i++) {
                 const b = document.createElement('span'), size = 6 + (i * 7) % 16;
@@ -540,7 +547,6 @@
                 box.append(b);
             }
 
-            // panel misi (ditumpuk, satu tampil), langkah, node orbit
             panel.innerHTML = MISI.map((m, i) => `<div class="vm-item" data-k="${i}"><div class="flex gap-4 items-start"><span class="font-extrabold text-4xl lg:text-6xl leading-none text-amber-300">${String(i + 1).padStart(2, '0')}</span><p class="text-sm md:text-base lg:text-lg leading-relaxed">${m}</p></div></div>`).join('');
             steps.innerHTML = MISI.map((_, i) => `<button type="button" class="vm-step" data-k="${i}" aria-label="Misi ${i + 1}"></button>`).join('');
             orbit.insertAdjacentHTML('beforeend', MISI.map((_, i) => {
@@ -557,25 +563,33 @@
                 });
             }
 
-            // progres scroll 0..1 selama section menempel
             const wide = matchMedia('(min-width: 1024px)');
+            const vmContent = $('vm-content');
             const range = () => track.offsetHeight - stage.offsetHeight;
             onScroll(() => {
                 const r = track.getBoundingClientRect();
                 const p = clamp01((64 - r.top) / range());
-                const t = p * (n - 1), focus = wide.matches ? 270 : 180;   // misi aktif berhenti di sisi teks
+                const t = p * (n - 1), focus = wide.matches ? 270 : 180;
                 orbit.style.setProperty('--rot', `${focus - t * 360 / n}deg`);
                 setActive(Math.round(t));
+
+                if (!reduceMotion && vmContent) {
+                    const viewH = innerHeight - 64 || 1;
+                    const enter = clamp01((innerHeight - r.top) / viewH);
+                    const exit = clamp01((innerHeight - r.bottom) / viewH);
+                    const scale = 0.82 + 0.18 * enter - 0.18 * exit;
+                    const opacity = 0.25 + 0.75 * enter - 0.75 * exit;
+                    vmContent.style.transform = `scale(${scale})`;
+                    vmContent.style.opacity = opacity;
+                }
             });
 
-            // klik node / langkah = loncat ke misi itu
             card.addEventListener('click', e => {
                 const t = e.target.closest('.node, .vm-step'); if (!t) return;
                 const top = scrollY + track.getBoundingClientRect().top - 64 + (+t.dataset.k / (n - 1)) * range();
                 scrollTo({ top: top + 1, behavior: reduceMotion ? 'auto' : 'smooth' });
             });
 
-            // teks visi muncul kata demi kata saat section terlihat
             const visi = $('cms-visi');
             const io = new IntersectionObserver(([e]) => {
                 if (!e.isIntersecting) return;
@@ -586,18 +600,6 @@
             }, { threshold: .25 });
             io.observe(card);
         })();
-
-        // 5. Status layanan TU (WIB, Senin-Jumat 07.00-15.00)
-        function updateOpenStatus() {
-            const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Jakarta', weekday: 'short', hour: 'numeric', hourCycle: 'h23' })
-                .formatToParts(new Date()).map(x => [x.type, x.value]));
-            const open = !['Sat', 'Sun'].includes(p.weekday) && +p.hour >= 7 && +p.hour < 15;
-            const el = $('open-status');
-            el.className = `mt-3 inline-flex items-center gap-2 text-xs font-semibold rounded-full px-3 py-1 ${open ? 'bg-emerald-500/15 text-emerald-300' : 'bg-slate-800 text-slate-400'}`;
-            el.innerHTML = `<span class="w-2 h-2 rounded-full ${open ? 'bg-emerald-400' : 'bg-slate-500'}"></span>${open ? 'Sedang buka' : 'Sedang tutup'}`;
-        }
-        updateOpenStatus();
-        setInterval(updateOpenStatus, 60000);
 
         document.addEventListener('DOMContentLoaded', loadWebData);
     </script>
